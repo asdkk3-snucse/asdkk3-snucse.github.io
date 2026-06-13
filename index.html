@@ -299,6 +299,14 @@
       line-height: 1.5;
     }
 
+    .ai-usage-details {
+      grid-template-columns: minmax(160px, 0.35fr) minmax(0, 1fr);
+    }
+
+    .usage-prompt dd {
+      overflow-wrap: anywhere;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -487,6 +495,7 @@
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#courses">Courses</a></li>
+        <li><a href="#ai-usage">AI Usage</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -609,6 +618,28 @@
             <li>Data</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+    <section id="ai-usage" class="section" aria-labelledby="ai-usage-title">
+      <div class="section-header">
+        <h2 id="ai-usage-title">AI Usage</h2>
+        <div>
+          <p class="section-intro">
+            Short record of AI assistance used while updating this personal
+            website.
+          </p>
+          <dl class="about-details ai-usage-details" aria-label="AI usage details">
+            <div>
+              <dt>Tool</dt>
+              <dd>Codex</dd>
+            </div>
+            <div class="usage-prompt">
+              <dt>Prompt</dt>
+              <dd>/assets/cv.pdf를 업데이트했는데 이에 맞춰서 수정해줘</dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </section>
 
