@@ -270,10 +270,43 @@
       line-height: 1.38;
     }
 
+    .about-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 68ch;
+      margin: 24px 0 0;
+    }
+
+    .about-details div {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(28, 28, 28, 0.03);
+      padding: 16px;
+    }
+
+    .about-details dt {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .about-details dd {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
+    }
+
+    .course-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .card {
@@ -396,6 +429,14 @@
         grid-template-columns: 1fr;
       }
 
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-details {
+        grid-template-columns: 1fr;
+      }
+
       .cv-panel {
         align-items: flex-start;
         flex-direction: column;
@@ -442,8 +483,10 @@
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top">YongHun Lee</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#courses">Courses</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -461,7 +504,7 @@
           systems.
         </p>
         <div class="hero-actions" aria-label="Featured links">
-          <a class="button" href="#work">View Projects</a>
+          <a class="button" href="#projects">View Projects</a>
           <a class="button secondary" href="assets/cv.pdf?v=20260613-165105">Open CV</a>
         </div>
       </div>
@@ -473,52 +516,97 @@
 
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-header">
-        <h2 id="about-title">About</h2>
-        <p class="section-intro">
-          I study computer science at Seoul National University and build
-          software around machine learning, computer vision, and reliable
-          implementation. My recent work uses CNN and OpenCV pipelines for
-          real-time visual detection systems.
-        </p>
+        <h2 id="about-title">About Me</h2>
+        <div>
+          <p class="section-intro">
+            My name is Lee YongHun, and I major in Computer Science &amp;
+            Engineering. I am interested in large language models, agent
+            architectures, multimodal perception, and long-term personalized
+            memory.
+          </p>
+          <dl class="about-details" aria-label="Personal information">
+            <div>
+              <dt>Name</dt>
+              <dd>Lee YongHun</dd>
+            </div>
+            <div>
+              <dt>Major</dt>
+              <dd>Computer Science &amp; Engineering</dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </section>
 
-    <section id="work" class="section" aria-labelledby="work-title">
+    <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="section-header">
-        <h2 id="work-title">Work</h2>
+        <h2 id="projects-title">Projects</h2>
         <p class="section-intro">
-          Selected work and technical strengths from my current CV.
+          Industry project activities focused on CNN-based real-time medical
+          image detection systems.
         </p>
       </div>
 
       <div class="grid">
         <article class="card">
-          <h3>Real-time Liver Abnormality Detection</h3>
-          <p>Built a CNN-based visual detection project focused on identifying liver abnormalities in real time.</p>
-          <ul class="tag-list" aria-label="Liver abnormality detection skills">
+          <h3>CNN Project</h3>
+          <p>Worked on industry projects applying convolutional neural networks to real-time medical visual perception.</p>
+          <ul class="tag-list" aria-label="CNN project categories">
+            <li>Industry Project</li>
             <li>CNN</li>
             <li>OpenCV</li>
-            <li>Python</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Gastrointestinal Polyp Detection</h3>
-          <p>Worked on a real-time gastrointestinal polyp detection system using computer vision techniques.</p>
+          <h3>Real-time Liver Abnormality Detection System</h3>
+          <p>Developed a real-time detection system for identifying liver abnormalities from visual input.</p>
+          <ul class="tag-list" aria-label="Liver abnormality detection skills">
+            <li>CNN</li>
+            <li>Real-time Detection</li>
+            <li>Medical Imaging</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Real-time Gastrointestinal Polyp Detection System</h3>
+          <p>Built a real-time computer vision system for detecting gastrointestinal polyps.</p>
           <ul class="tag-list" aria-label="Gastrointestinal polyp detection skills">
             <li>Computer Vision</li>
             <li>CNN</li>
-            <li>Linux</li>
+            <li>OpenCV</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="courses" class="section" aria-labelledby="courses-title">
+      <div class="section-header">
+        <h2 id="courses-title">Courses Plan To Take</h2>
+        <p class="section-intro">
+          Planned coursework aligned with my interests in artificial
+          intelligence, machine learning, and intelligent agent systems.
+        </p>
+      </div>
+
+      <div class="grid course-grid">
+        <article class="card">
+          <h3>Introduction to Artificial Intelligence</h3>
+          <p>Planned foundational study of AI concepts, problem solving, and intelligent system design.</p>
+          <ul class="tag-list" aria-label="Introduction to Artificial Intelligence topics">
+            <li>AI</li>
+            <li>Reasoning</li>
+            <li>Agents</li>
           </ul>
         </article>
 
         <article class="card">
-          <h3>Technical Toolkit</h3>
-          <p>Comfortable working across programming, machine learning, and development environments.</p>
-          <ul class="tag-list" aria-label="Technical toolkit">
-            <li>Python</li>
-            <li>C++</li>
-            <li>Java</li>
+          <h3>Machine Learning</h3>
+          <p>Planned coursework focused on learning algorithms, model training, and data-driven prediction.</p>
+          <ul class="tag-list" aria-label="Machine Learning topics">
+            <li>ML</li>
+            <li>Models</li>
+            <li>Data</li>
           </ul>
         </article>
       </div>
@@ -547,10 +635,11 @@
         <h2 id="contact-title">Contact</h2>
         <div>
           <p class="section-intro">
-            Current code and public project work are available through GitHub.
+            Reach me by email or follow my public project work on GitHub.
           </p>
           <ul class="contact-list" aria-label="Contact links">
-            <li><a href="https://github.com/asdkk3-snucse">GitHub</a></li>
+            <li><a href="mailto:asdkk3@snu.ac.kr">asdkk3@snu.ac.kr</a></li>
+            <li><a href="https://github.com/asdkk3-snucse">github.com/asdkk3-snucse</a></li>
           </ul>
         </div>
       </div>
