@@ -7,16 +7,25 @@
   <title>YongHun Lee | Personal Website</title>
   <style>
     :root {
-      --background: #f4f6f8;
-      --surface: #ffffff;
-      --text: #1d2328;
-      --muted: #5b6670;
-      --accent: #28635b;
-      --accent-strong: #1d4f48;
-      --line: #d8dde3;
-      --shadow: 0 18px 50px rgba(29, 35, 40, 0.12);
+      --background: #f7f4ed;
+      --surface: #f7f4ed;
+      --text: #1c1c1c;
+      --text-strong: rgba(28, 28, 28, 0.83);
+      --muted: #5f5f5d;
+      --line: #eceae4;
+      --interactive-line: rgba(28, 28, 28, 0.4);
+      --tint: rgba(28, 28, 28, 0.04);
+      --off-white: #fcfbf8;
+      --focus-ring: rgba(59, 130, 246, 0.5);
+      --focus-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+      --button-shadow:
+        rgba(0, 0, 0, 0) 0 0 0 0,
+        rgba(0, 0, 0, 0) 0 0 0 0,
+        rgba(255, 255, 255, 0.2) 0 0.5px 0 0 inset,
+        rgba(0, 0, 0, 0.2) 0 0 0 0.5px inset,
+        rgba(0, 0, 0, 0.05) 0 1px 2px 0;
       color-scheme: light;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Camera Plain Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * {
@@ -32,7 +41,7 @@
       background: var(--background);
       color: var(--text);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     img {
@@ -42,19 +51,20 @@
     }
 
     a {
-      color: var(--accent);
+      color: var(--text);
       text-decoration-thickness: 0.08em;
       text-underline-offset: 0.18em;
     }
 
     a:hover {
-      color: var(--accent-strong);
+      text-decoration-thickness: 0.12em;
     }
 
     a:focus-visible,
     button:focus-visible {
-      outline: 3px solid rgba(40, 99, 91, 0.45);
+      outline: 2px solid var(--focus-ring);
       outline-offset: 3px;
+      box-shadow: var(--focus-shadow);
     }
 
     .skip-link {
@@ -63,10 +73,10 @@
       left: 0.75rem;
       z-index: 10;
       transform: translateY(-180%);
-      border-radius: 0.5rem;
+      border-radius: 6px;
       background: var(--text);
-      color: var(--surface);
-      padding: 0.55rem 0.8rem;
+      color: var(--off-white);
+      padding: 8px 16px;
       text-decoration: none;
       transition: transform 160ms ease;
     }
@@ -76,23 +86,28 @@
     }
 
     .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
       border-bottom: 1px solid var(--line);
-      background: rgba(244, 246, 248, 0.92);
+      background: rgba(247, 244, 237, 0.94);
+      backdrop-filter: blur(12px);
     }
 
     .nav {
-      width: min(1120px, calc(100% - 2rem));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 0;
+      gap: 16px;
+      padding: 16px 0;
     }
 
     .brand {
       color: var(--text);
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 600;
       letter-spacing: 0;
       text-decoration: none;
     }
@@ -101,44 +116,48 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 0.35rem 1rem;
+      gap: 8px 24px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 650;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 400;
       text-decoration: none;
     }
 
     .nav-links a:hover {
-      color: var(--text);
+      text-decoration: underline;
     }
 
     main {
-      width: min(1120px, calc(100% - 2rem));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
-      gap: clamp(2rem, 6vw, 5rem);
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.65fr);
+      gap: clamp(40px, 8vw, 96px);
       align-items: center;
-      min-height: 68vh;
-      padding: clamp(3rem, 8vw, 6.5rem) 0;
+      min-height: 72vh;
+      padding: clamp(80px, 12vw, 128px) 0 clamp(64px, 10vw, 112px);
     }
 
     .eyebrow {
-      margin: 0 0 0.75rem;
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      display: inline-flex;
+      margin: 0 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 9999px;
+      background: rgba(28, 28, 28, 0.03);
+      color: var(--text-strong);
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0;
     }
 
     h1,
@@ -150,114 +169,132 @@
 
     h1 {
       max-width: 12ch;
-      margin-bottom: 1rem;
-      font-size: clamp(3rem, 7vw, 5.6rem);
-      line-height: 0.98;
-      letter-spacing: 0;
+      margin-bottom: 16px;
+      font-size: clamp(48px, 7vw, 60px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -1.5px;
     }
 
     .hero-copy {
       max-width: 62ch;
       color: var(--muted);
-      font-size: 1.17rem;
+      font-size: 18px;
+      line-height: 1.38;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
+      gap: 12px;
+      margin-top: 32px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 2.8rem;
-      border: 1px solid var(--accent);
-      border-radius: 0.5rem;
-      padding: 0.65rem 1rem;
-      background: var(--accent);
-      color: #ffffff;
-      font-weight: 800;
+      min-height: 40px;
+      border: 1px solid var(--text);
+      border-radius: 6px;
+      padding: 8px 16px;
+      background: var(--text);
+      color: var(--off-white);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
       text-decoration: none;
+      box-shadow: var(--button-shadow);
+      transition: opacity 160ms ease, background-color 160ms ease, border-color 160ms ease;
     }
 
     .button:hover {
-      background: var(--accent-strong);
-      color: #ffffff;
+      color: var(--off-white);
+      opacity: 0.8;
+      text-decoration: none;
     }
 
     .button.secondary {
       background: transparent;
-      color: var(--accent);
+      color: var(--text);
+      border-color: var(--interactive-line);
+      box-shadow: none;
     }
 
     .button.secondary:hover {
-      background: rgba(40, 99, 91, 0.08);
-      color: var(--accent-strong);
+      background: var(--tint);
+      color: var(--text);
     }
 
     .profile-frame {
       position: relative;
       border: 1px solid var(--line);
-      border-radius: 0.75rem;
+      border-radius: 12px;
       background: var(--surface);
-      padding: 0.75rem;
-      box-shadow: var(--shadow);
+      padding: 8px;
+      margin: 0;
     }
 
     .profile-frame img {
       width: 100%;
       aspect-ratio: 4 / 5;
-      border-radius: 0.45rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
       object-fit: cover;
     }
 
     .section {
-      padding: clamp(2.25rem, 6vw, 4.5rem) 0;
-      border-top: 1px solid var(--line);
+      padding: clamp(64px, 10vw, 128px) 0;
     }
 
     .section-header {
       display: grid;
-      grid-template-columns: minmax(160px, 0.35fr) minmax(0, 1fr);
-      gap: clamp(1rem, 4vw, 3rem);
+      grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+      gap: clamp(24px, 6vw, 80px);
       align-items: start;
-      margin-bottom: 1.5rem;
+      margin-bottom: 32px;
     }
 
     h2 {
       margin-bottom: 0;
-      font-size: clamp(1.65rem, 3vw, 2.25rem);
-      line-height: 1.15;
-      letter-spacing: 0;
+      font-size: clamp(36px, 5vw, 48px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -1.2px;
     }
 
     .section-intro {
       max-width: 68ch;
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 18px;
+      line-height: 1.38;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 16px;
     }
 
     .card {
       min-height: 100%;
       border: 1px solid var(--line);
-      border-radius: 0.5rem;
+      border-radius: 12px;
       background: var(--surface);
-      padding: 1.2rem;
+      padding: 24px;
+      transition: border-color 160ms ease, background-color 160ms ease;
+    }
+
+    .card:hover {
+      border-color: var(--interactive-line);
+      background: rgba(28, 28, 28, 0.03);
     }
 
     .card h3 {
-      margin-bottom: 0.45rem;
-      font-size: 1.05rem;
-      line-height: 1.3;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.25;
       letter-spacing: 0;
     }
 
@@ -269,8 +306,8 @@
     .tag-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0 0;
+      gap: 8px;
+      margin: 24px 0 0;
       padding: 0;
       list-style: none;
     }
@@ -278,22 +315,23 @@
     .tag-list li {
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: #fff7e6;
-      padding: 0.25rem 0.7rem;
+      background: rgba(28, 28, 28, 0.03);
+      padding: 4px 12px;
       color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 650;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
     }
 
     .cv-panel {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.25rem;
+      gap: 24px;
       border: 1px solid var(--line);
-      border-radius: 0.5rem;
+      border-radius: 16px;
       background: var(--surface);
-      padding: clamp(1.25rem, 4vw, 2rem);
+      padding: clamp(24px, 4vw, 40px);
     }
 
     .cv-panel p {
@@ -304,22 +342,24 @@
     .contact-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem 1rem;
+      gap: 12px 24px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
     .contact-list a {
-      font-weight: 750;
+      font-weight: 400;
     }
 
     .site-footer {
-      width: min(1120px, calc(100% - 2rem));
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      padding: 32px 0 48px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     @media (max-width: 820px) {
@@ -339,11 +379,13 @@
 
       .hero {
         min-height: auto;
-        padding-top: 2.75rem;
+        padding: 64px 0;
       }
 
       h1 {
         max-width: 10ch;
+        font-size: 48px;
+        letter-spacing: -1.2px;
       }
 
       .profile-frame {
@@ -364,15 +406,27 @@
       main,
       .nav,
       .site-footer {
-        width: min(100% - 1.25rem, 1120px);
+        width: min(100% - 24px, 1200px);
       }
 
       h1 {
-        font-size: 2.65rem;
+        font-size: 36px;
+        letter-spacing: -0.9px;
       }
 
       .hero-copy {
-        font-size: 1.05rem;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      h2 {
+        font-size: 32px;
+        letter-spacing: -0.9px;
+      }
+
+      .section-intro {
+        font-size: 16px;
+        line-height: 1.5;
       }
 
       .button {
@@ -493,8 +547,7 @@
         <h2 id="contact-title">Contact</h2>
         <div>
           <p class="section-intro">
-            You can add your preferred email, GitHub, LinkedIn, or other profile
-            links here.
+            Current code and public project work are available through GitHub.
           </p>
           <ul class="contact-list" aria-label="Contact links">
             <li><a href="https://github.com/asdkk3-snucse">GitHub</a></li>
